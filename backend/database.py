@@ -1,3 +1,9 @@
+#/* Copyright (C) Florentina Petcu - All Rights Reserved
+# * Unauthorized copying of this file, via any medium is strictly prohibited
+# * Proprietary and confidential
+# * Written by Florentina Petcu <florentina.ptc@gmail.com>, December 2018
+# */
+
 import csv
 import MySQLdb
 import re
@@ -93,7 +99,7 @@ def getBooksListById(ids):
 		data += [cursor.fetchone()]
 	
 	cursor.close()
-	
+
 	result = []
 	for d in data:
 		title = d[1][1:-1]
