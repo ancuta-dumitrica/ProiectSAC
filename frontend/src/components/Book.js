@@ -15,6 +15,7 @@ class Book extends Component {
         similarBooks: []
     };
         this.buttonFormatter = this.buttonFormatter.bind(this);
+        console.log("sunt in constructor");
   }
   componentDidMount() {
 
@@ -36,10 +37,30 @@ class Book extends Component {
 
   }
 
+    componentDidUpdate() {
+
+             var obj = {
+                    "idBook": this.state.idBook
+                   };
+             console.log("OBJ::: ", obj);
+
+             post("bookById", obj).then(response => {
+                   this.setState({
+                                detailsBook: response,
+                   })
+             });
+             post("similarBooks", obj).then(response => {
+                  this.setState({
+                               similarBooks: response,
+                  })
+             });
+
+    }
+
 
   buttonFormatter(cell, row){
-        console.log("row= ", row.id);
         var path = "/book/" + row.id;
+        this.setState();
       return  <Button
                   onClick={() => this.props.history.push('/book/' + row.id)}
               >Details Book
@@ -47,6 +68,8 @@ class Book extends Component {
   }
 
   render() {
+ //         console.log("sunt in render");
+
 //    var similarBooks = [
 //      {"id": "id1S", "title": "t1", "author": "a1"},
 //      {"id": "id2S", "title": "t2", "author": "a2"}
@@ -65,7 +88,8 @@ class Book extends Component {
 //            	"stars": 10
 //            }
 //            console.log("detailsBook", detailsBook);
-
+   // this.state.detailsBook = detailsBook;
+   // this.state.similarBooks = similarBooks;
     return (
       <div>
             <h1>{this.state.detailsBook.title}</h1>
