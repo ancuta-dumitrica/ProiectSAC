@@ -1,3 +1,10 @@
+/* Copyright (C) Maria-Ramona Raducu - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ * Written by Maria-Ramona Raducu <raducu.ramona95@gmail.com>, December 2018
+*/
+
+
 const headers = {
   'Accept': 'application/json',
   'Content-Type': 'application/json',
@@ -11,10 +18,9 @@ export const  getJson = (relativeUrl) => {
                           method: 'GET',
                           headers: headers,
                 })
-        .then(res => {
-           console.log('================ Rezultat', res);
+       .then(res => {
             return res.json();
-        })
+       })
        .then(data => {
            console.log("data GET::: ", data);
            return data;
@@ -32,7 +38,6 @@ export const post = (relativeUrl, data) => {
 		 return res.json()
 	})
 	.then(data => {
-		console.log("dataPOOOOOOST:", data);
 		return data;
 
 	});
@@ -43,5 +48,5 @@ export function getAllBooks() {
   return [
           {"id": "id1", "title": "t1", "author": "a1"},
           {"id": "id2", "title": "t2", "author": "a2"}
-          ];
+        ];
 }
