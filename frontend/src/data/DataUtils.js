@@ -30,23 +30,31 @@ export const  getJson = (relativeUrl) => {
 
 export const post = (relativeUrl, data) => {
     return fetch(`${url}/${relativeUrl}`, {
-		method: 'POST',
-		headers: headers,
-		body: JSON.stringify(data)
-	})
-	.then(res => {
-		 return res.json()
-	})
-	.then(data => {
-		return data;
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify(data)
+    })
+        .then(res => {
+            return res.json()
+        })
+        .then(data => {
+            return data;
 
-	});
+        });
 };
 
 
 export function getAllBooks() {
   return [
           {"id": "id1", "title": "t1", "author": "a1"},
-          {"id": "id2", "title": "t2", "author": "a2"}
+          {"id": "id2", "title": "t2", "author": "a2"},
+      {"id": "id3", "title": "t3", "author": "a3"},
+      {"id": "id3", "title": "t3", "author": "a3"},
+      {"id": "id3", "title": "t3", "author": "a3"},
+      {"id": "id3", "title": "t3", "author": "a3"},
+      {"id": "id3", "title": "t3", "author": "a3"},
+      {"id": "id3", "title": "t3", "author": "a3"},
+      {"id": "id3", "title": "t3", "author": "a3"},
+      {"id": "id3", "title": "t3", "author": "a3"},
         ];
 }

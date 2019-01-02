@@ -19,11 +19,11 @@ def similarityDescription(position):
 
 	result = []
 	for index, s in enumerate(similarity[0]):
-		if s >= 0.35:
+		if s >= 0.35 and ids[index] != position + 2:
 			result += [ids[index]]
 
 	return result
 
 def getSimilarBooksList(idBook):
-	similarIds = similarityDescription(idBook - 2)
+	similarIds = similarityDescription(int(idBook) - 2)
 	return getBooksListById(similarIds)

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Dashboard from './Dashboard';
 import * as serviceWorker from './serviceWorker';
+import 'semantic-ui-css/semantic.min.css'
 
 ReactDOM.render(<Dashboard />, document.getElementById('root'));
 

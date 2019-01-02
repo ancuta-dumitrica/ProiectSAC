@@ -6,34 +6,45 @@
 
 import React, { Component } from 'react';
 import './Dashboard.css';
-// import react router
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import Book from './components/Book'
-import AllBooks from './components/AllBooks.js'
-import Button from 'react-bootstrap/lib/Button';
+import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
+import LoginPage from "./components/LoginPage";
+import AllBooks from "./components/AllBooks";
+import Book from "./components/Book";
+import FavoritesPage from "./components/FavoritesPage";
 
 class Dashboard extends Component {
  constructor(props) {
     super(props);
   }
 
-
   render() {
 
     return (
-      <div className="App">
-            <Router>
-                       <div>
-                            <Link to="/allBooks"><Button  style={{float:'left'}}>All Books</Button></Link>
-                       <Switch>
-                          <Route exact path='/allBooks' component={AllBooks} />
-                          <Route path="/book/:idBook" component={Book}/>
-                       </Switch>
-                    </div>
-            </Router>
+            <BrowserRouter forceRefresh>
+                <Switch>
+                    <Route path="/login" render={ props => <LoginPage {...props}/> } />
+                    <Route path="/allBooks" render={ props => (
+                        localStorage.getItem('userId')?
+                            <AllBooks {...props}/> :
+                            <Redirect to="/login"/>
+                    )}
+                    />
 
+                    <Route path="/book/:idBook" render={ props => (
+                        localStorage.getItem('userId')?
+                            <Book {...props}/> :
+                            <Redirect to="/login"/>
+                    )}
+                    />
 
-      </div>
+                    <Route path="/favorites" render={ props => (
+                        localStorage.getItem('userId')?
+                            <FavoritesPage {...props}/> :
+                            <Redirect to="/login"/>
+                    )}
+                    />
+                </Switch>
+            </BrowserRouter>
     );
   }
 }
