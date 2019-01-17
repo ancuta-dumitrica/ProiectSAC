@@ -18,7 +18,6 @@ def allBooks():
     result = getBooksList()
     return jsonify(result)
 
-
 @app.route("/bookById", methods = ['POST', 'GET'])
 def bookById():
 	bookId = request.json['idBook']
@@ -34,10 +33,14 @@ def similarBooks():
 @app.route("/recomandation", methods = ['POST', 'GET'])
 def recomandation():
 	idUser = request.json['idUser']
-	nr = request.json['nr']
-	result = getRecomandation(idUser, nr)
+	result = getRecomandation(idUser)
 	return jsonify(result)
 
+@app.route("/newRecomandation", methods = ['POST', 'GET'])
+def newRecomandation():
+	idUser = request.json['idUser']
+	result = computeRecomandation(idUser)
+	return jsonify(result)
 
 @app.route("/login", methods = ['POST', 'GET'])
 def login():
