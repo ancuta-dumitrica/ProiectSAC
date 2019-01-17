@@ -1,3 +1,19 @@
+.all {
+    text-align: center;
+}
+
 .favorites {
-    margin-top: 10%;
+    /*padding-bottom: 50px;*/
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.header {
+    margin-bottom: 0;
 }

@@ -12,6 +12,10 @@ import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import Book from  './Book.js';
 // import react router
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import MyMenu from "./MyMenu";
+import Segment from "../../node_modules/semantic-ui-react/dist/commonjs/elements/Segment/Segment";
+import Icon from "../../node_modules/semantic-ui-react/dist/commonjs/elements/Icon/Icon";
+import Header from "../../node_modules/semantic-ui-react/dist/commonjs/elements/Header/Header";
 
 class AllBooks extends Component {
  constructor(props) {
@@ -19,7 +23,8 @@ class AllBooks extends Component {
 
     this.state = {
         allBooks: [],
-        idBook: 0
+        idBook: 0,
+        activeItem: 'allBooks'
     };
     this.buttonFormatter = this.buttonFormatter.bind(this);
   }
@@ -44,7 +49,15 @@ class AllBooks extends Component {
   render() {
     return (
       <div className="App">
-            <h1> Books </h1>
+          <div className='header'>
+              <Segment  inverted color='teal'>
+                  <Header as='h1'>
+                      Book Recommender 📚
+                  </Header>
+              </Segment>
+          </div>
+          <MyMenu {...this.props} activeItem={this.state.activeItem }/>
+
             <div  className="container">
                 <BootstrapTable data={this.state.allBooks} striped={true} hover={true}  search pagination>
                       <TableHeaderColumn width="123" dataField="title" isKey={true} dataAlign="center" dataSort={true}>Title</TableHeaderColumn>
@@ -53,6 +66,12 @@ class AllBooks extends Component {
                       <TableHeaderColumn width="123" dataField="button" dataAlign="center" dataFormat={this.buttonFormatter}>Details</TableHeaderColumn>
                 </BootstrapTable>
             </div>
+
+          <div className='footer'>
+              <Segment inverted color='teal'>
+                  <Icon name='copyright outline' /> 2019 Proiect SAC
+              </Segment>
+          </div>
       </div>
     );
   }

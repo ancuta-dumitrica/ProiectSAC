@@ -11,6 +11,7 @@ import LoginPage from "./components/LoginPage";
 import AllBooks from "./components/AllBooks";
 import Book from "./components/Book";
 import FavoritesPage from "./components/FavoritesPage";
+import Recommendations from "./components/Recommendations";
 
 class Dashboard extends Component {
  constructor(props) {
@@ -40,6 +41,13 @@ class Dashboard extends Component {
                     <Route path="/favorites" render={ props => (
                         localStorage.getItem('userId')?
                             <FavoritesPage {...props}/> :
+                            <Redirect to="/login"/>
+                    )}
+                    />
+
+                    <Route path="/recommendations" render={ props => (
+                        localStorage.getItem('userId')?
+                            <Recommendations {...props}/> :
                             <Redirect to="/login"/>
                     )}
                     />

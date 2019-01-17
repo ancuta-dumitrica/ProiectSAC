@@ -8,7 +8,7 @@ import React, { Component } from 'react';
 import './Book.css';
 import Button from 'react-bootstrap/lib/Button';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import {getJson, post} from "../data/DataUtils";
+import { post} from "../data/DataUtils";
 
 const display = {
   display: 'block',
@@ -46,7 +46,7 @@ class Book extends Component {
        toggle: !prevState.toggle
      }));
 
-     post("favorite", {"idUser": 1,
+     post("favorite", {"idUser": localStorage.getItem('userId'),
                       "idBook": this.state.idBook}).then(response => {
                       this.setState({OK: response.OK,
                                     error: response.error

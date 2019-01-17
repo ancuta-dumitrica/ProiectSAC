@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@version/react-router-v3": "^1.0.0",
+    "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-bootstrap": "^0.32.4",
     "react-bootstrap-table": "^4.3.1",

@@ -46,15 +46,15 @@ export const post = (relativeUrl, data) => {
 
 export function getAllBooks() {
   return [
-          {"id": "id1", "title": "t1", "author": "a1"},
-          {"id": "id2", "title": "t2", "author": "a2"},
-      {"id": "id3", "title": "t3", "author": "a3"},
-      {"id": "id3", "title": "t3", "author": "a3"},
-      {"id": "id3", "title": "t3", "author": "a3"},
-      {"id": "id3", "title": "t3", "author": "a3"},
-      {"id": "id3", "title": "t3", "author": "a3"},
-      {"id": "id3", "title": "t3", "author": "a3"},
-      {"id": "id3", "title": "t3", "author": "a3"},
-      {"id": "id3", "title": "t3", "author": "a3"},
+          {"id": "id1", "title": "King and Maxwell (King & Maxwell) [Kindle Edition]", "author": "David Baldacci"},
+          {"id": "id2", "title": "King and Maxwell (King & Maxwell) [Kindle Edition]", "author": "David Baldacci"},
+      {"id": "id3", "title": "King and Maxwell (King & Maxwell) [Kindle Edition]", "author": "David Baldacci"},
+      {"id": "id3", "title": "King and Maxwell (King & Maxwell) [Kindle Edition]", "author": "David Baldacci"},
+      {"id": "id3", "title": "King and Maxwell (King & Maxwell) [Kindle Edition]", "author": "David Baldacci"},
+      {"id": "id3", "title": "King and Maxwell (King & Maxwell) [Kindle Edition]", "author": "David Baldacci"},
+      {"id": "id3", "title": "King and Maxwell (King & Maxwell) [Kindle Edition]", "author": "David Baldacci"},
+      {"id": "id3", "title": "King and Maxwell (King & Maxwell) [Kindle Edition]", "author": "David Baldacci"},
+      {"id": "id3", "title": "King and Maxwell (King & Maxwell) [Kindle Edition]", "author": "David Baldacci"},
+      {"id": "id3", "title": "King and Maxwell (King & Maxwell) [Kindle Edition]", "author": "David Baldacci"},
         ];
 }

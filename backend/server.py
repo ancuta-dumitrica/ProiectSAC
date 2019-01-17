@@ -30,6 +30,14 @@ def similarBooks():
 	bookId = request.json['idBook']
 	result = getSimilarBooksList(bookId)
 	return jsonify(result)
+	
+@app.route("/recomandation", methods = ['POST', 'GET'])
+def recomandation():
+	idUser = request.json['idUser']
+	nr = request.json['nr']
+	result = getRecomandation(idUser, nr)
+	return jsonify(result)
+
 
 @app.route("/login", methods = ['POST', 'GET'])
 def login():
