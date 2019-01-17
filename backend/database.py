@@ -64,7 +64,10 @@ def getBookById(idBook):
 	cursor.close()
 
 	print(data)
-	data = [d[1:-1] if not isinstance(d, int) else d for d in data]
+	print('printing d in ddata')
+	for d in data:
+		print(isinstance(d, long))
+	data = [d[1:-1] if not isinstance(d, long) else d for d in data]
 	result = dict(zip(header, data))
 
 	return result
@@ -135,8 +138,11 @@ def addFavorite(idUser, idBook):
 	mydb = MySQLdb.connect(host = 'localhost', user = 'root', passwd = 'password', db = 'sac', use_unicode = True, charset = 'utf8')
 	cursor = mydb.cursor()
 
+	print(idUser)
+	print(idBook)
+
 	try:
-		cursor.execute('INSERT into favorites (idUser, idBook) VALUES("%s", "%s")', [idUser, idBook])
+		cursor.execute('INSERT into favorites (idUser, idBook) VALUES(%s, %s)', [idUser, idBook])
 	except Exception as e:
 		print (e)
 		return {'error': 'cannot set favorite book'}
