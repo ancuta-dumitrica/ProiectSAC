@@ -12,47 +12,53 @@ class Recommendations extends Component {
         super(props);
 
         this.state = {
-            favoriteBooks: [],
-            activeItem: 'favorites'
+            recommendations: [],
+            activeItem: 'recommendations'
         };
     }
 
     componentDidMount() {
-        var arr = [];
+        let arr = [];
 
         post("recomandation", {idUser: localStorage.getItem('userId') }).then(response => {
             response.forEach(function(key) {
                 arr.push({
                     header: key.title,
-                    meta: key.author
+                    meta: key.author,
+                    href: `http://127.0.0.1:3000/book/${key.id}`
                 })
             });
+
+            this.setState({
+                recommendations: arr
+            });
         });
-
-        this.setState({
-            favoriteBooks: arr,
-        })
-
     }
 
     render() {
         return (
             <div className='all'>
-                <Segment inverted color='teal'>
-                    <Header as='h1'>
-                        Book Recommender 📚
-                    </Header>
-                </Segment>
+                <div className='header'>
+                    <Segment  inverted color='teal'>
+                         <Header as='h1'>
+                            Book Recommender 📚
+                        </Header>
+                    </Segment>
+                </div>
                 <MyMenu {...this.props} activeItem={this.state.activeItem }/>
 
-                <div className="favorites">
-                    <Card.Group centered items={this.state.favoriteBooks} />
-                </div>
+                {!this.state.recommendations.length ? "No recommendations for you. Mark your favorite books so we can learn your book tastes :D." :
+                    <div className="favorites">
+                        <Card.Group centered items={this.state.recommendations}/>
+                    </div>
+                }
 
-                <Segment className='footer' inverted color='teal'>
-                    <Icon name='copyright outline' /> 2019 Proiect SAC
-                </Segment>
-            </div>
+                <div className='footer'>
+                    <Segment inverted color='teal'>
+                        <Icon name='copyright outline' /> 2019 Proiect SAC
+                    </Segment>
+                </div>
+        </div>
         )
     }
 }

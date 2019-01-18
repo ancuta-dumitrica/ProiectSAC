@@ -130,7 +130,7 @@ def getFavorites(idUser):
 	cursor.close()
 
 	result = []
-	for idbook in idsbook:
+	for idbook in list(set(idsbook)):
 		result.append(getBookById(idbook[0]))
 	return result
 
@@ -179,6 +179,6 @@ def getRecomandation(idUser):
 	cursor.close()
 
 	result = []
-	for idbook in idsbook:
+	for idbook in list(set(idsbook)):
 		result.append(getBookById(idbook[0]))
 	return result

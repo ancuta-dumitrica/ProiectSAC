@@ -33,12 +33,6 @@ class FavoritesPage extends Component {
                 favoriteBooks: arr
             });
         });
-
-
-    }
-
-    onclick(id) {
-        this.props.history.push('/book/' + id)
     }
 
     render() {
